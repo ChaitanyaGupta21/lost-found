@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost Item - Lost & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+          body {
+            background-image: url('images/local background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .report-container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .report-header h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .report-header p {
+            color: var(--gray-color);
+        }
+
+        .report-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .report-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .report-form input,
+        .report-form select,
+        .report-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .report-form input:focus,
+        .report-form select:focus,
+        .report-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .image-upload {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .image-upload:hover {
+            border-color: var(--primary-color);
+        }
+
+        .image-upload i {
+            font-size: 2rem;
+            color: var(--gray-color);
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark-color);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Lost<span>&</span>Found</h1>
+            </div>
+            <div class="location-dropdown">
+                <div class="location-search">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="location-input">Bhopal</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="location-menu">
+                    <div class="current-location">
+                        <i class="fas fa-location-arrow"></i>
+                        <div class="location-text">
+                            <span>Use current location</span>
+                        </div>
+                    </div>
+                    <div class="popular-locations">
+                        <h3>POPULAR LOCATIONS</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Kerala</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Tamil Nadu</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Punjab</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Maharashtra</li>
+                        </ul>
+                        <div class="more-locations">
+                            <h3>POPULAR LOCATIONS</h3>
+                            <ul>
+                                <li>Kolkata</li>
+                                <li>Mumbai</li>
+                                <li>Chennai</li>
+                                <li>Pune</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report-lost.html">Report Lost item</a></li>
+                <li><a href="report-found.html">Report found Item</a></li>
+                <li><a href="#success-stories">Success Stories</a></li>
+                <li><a href="#footer" class="contact-link">Contact Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn login-btn">Login</a>
+                <a href="register.html" class="btn register-btn">Register</a>
+            </div>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="report-container">
+            <div class="report-header">
+                <h2>Report Lost Item</h2>
+                <p>Please provide details about your lost item</p>
+            </div>
+            <form class="report-form" id="report-lost-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="owner-name">Owner's Name*</label>
+                        <input type="text" id="owner-name" name="owner-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-number">Contact Number*</label>
+                        <input type="tel" id="contact-number" name="contact-number" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-type">Type of Item*</label>
+                    <select id="item-type" name="item-type" required>
+                        <option value="">Select item type</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="documents">Documents</option>
+                        <option value="jewelry">Jewelry</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reward-amount">Reward Amount (₹)</label>
+                    <input type="number" id="reward-amount" name="reward-amount" min="0" step="100" placeholder="Enter reward amount (optional)">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lost-date">Lost Date*</label>
+                        <input type="date" id="lost-date" name="lost-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lost-time">Lost Time*</label>
+                        <input type="time" id="lost-time" name="lost-time" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lost-location">Lost Location*</label>
+                    <input type="text" id="lost-location" name="lost-location" placeholder="Enter the location where item was lost" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-description">Item Description</label>
+                    <textarea id="item-description" name="item-description" rows="4" placeholder="Provide detailed description of the lost item"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-image">Upload Image</label>
+                    <div class="image-upload" onclick="document.getElementById('item-image').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload image of the lost item</p>
+                        <input type="file" id="item-image" name="item-image" accept="image/*" style="display: none;">
+                        <div id="image-preview"></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Report Lost Item</button>
+            </form>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Lost<span>&</span>Found</h2>
+                <p>Connecting lost items with their owners</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@lostandfound.com</p>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Lost&Found. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageInput = document.getElementById('item-image');
+            const imagePreview = document.getElementById('image-preview');
+
+            imageInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.innerHTML = `<img src="${e.target.result}" style="max-width: 100%; max-height: 200px; margin-top: 10px;">`;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            document.getElementById('report-lost-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add form submission logic here
+                alert('Form submitted successfully!');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Lost & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('images/local background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .auth-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .auth-header h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: var(--gray-color);
+        }
+        
+        .auth-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .auth-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .auth-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .auth-form input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .auth-form .password-field {
+            position: relative;
+        }
+        
+        .auth-form .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--gray-color);
+        }
+        
+        .auth-form .terms {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .auth-form .terms input {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .auth-form .terms label {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .auth-form .terms a {
+            color: var(--primary-color);
+        }
+        
+        .auth-form .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .auth-form .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--gray-color);
+        }
+        
+        .auth-footer a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .social-login {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .social-login p {
+            margin-bottom: 15px;
+            color: var(--gray-color);
+            position: relative;
+        }
+        
+        .social-login p::before,
+        .social-login p::after {
+            content: "";
+            display: inline-block;
+            width: 40%;
+            height: 1px;
+            background-color: #ddd;
+            position: absolute;
+            top: 50%;
+        }
+        
+        .social-login p::before {
+            left: 0;
+        }
+        
+        .social-login p::after {
+            right: 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .name-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        @media (max-width: 576px) {
+            .name-fields {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Lost<span>&</span>Found</h1>
+            </div>
+            <div class="location-dropdown">
+                <div class="location-search">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="location-input">Bhopal</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="location-menu">
+                    <div class="current-location">
+                        <i class="fas fa-location-arrow"></i>
+                        <div class="location-text">
+                            <span>Use current location</span>
+                        </div>
+                    </div>
+                    <div class="popular-locations">
+                        <h3>POPULAR LOCATIONS</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Kerala</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Tamil Nadu</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Punjab</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Maharashtra</li>
+                        </ul>
+                        <div class="more-locations">
+                            <h3>POPULAR LOCATIONS</h3>
+                            <ul>
+                                <li>Kolkata</li>
+                                <li>Mumbai</li>
+                                <li>Chennai</li>
+                                <li>Pune</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report-lost.html">Report Lost item</a></li>
+                <li><a href="report-found.html">Report found Item</a></li>
+                <li><a href="#success-stories">Success Stories</a></li>
+                <li><a href="#footer" class="contact-link">Contact Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn login-btn">Login</a>
+                <a href="register.html" class="btn register-btn active">Register</a>
+            </div>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2>Create an Account</h2>
+                <p>Join our community to report lost or found items</p>
+            </div>
+            <form class="auth-form" id="register-form">
+                <div class="name-fields">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="password" name="password" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="password-field">
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                </div>
+                <div class="terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+            <div class="social-login">
+                <p>Or register with</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Lost<span>&</span>Found</h2>
+                <p>Connecting lost items with their owners</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@lostandfound.com</p>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Lost&Found. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle password visibility
+            const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+            
+            togglePasswordButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const passwordField = this.previousElementSibling;
+                    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordField.setAttribute('type', type);
+                    this.classList.toggle('fa-eye');
+                    this.classList.toggle('fa-eye-slash');
+                });
+            });
+            
+            // Form submission
+            const registerForm = document.getElementById('register-form');
+            
+            if (registerForm) {
+                registerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const firstName = document.getElementById('first-name').value.trim();
+                    const lastName = document.getElementById('last-name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const password = document.getElementById('password').value.trim();
+                    const confirmPassword = document.getElementById('confirm-password').value.trim();
+                    const termsChecked = document.getElementById('terms').checked;
+                    
+                    // Simple validation
+                    if (firstName === '' || lastName === '' || email === '' || phone === '' || password === '' || confirmPassword === '') {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+                    
+                    if (password !== confirmPassword) {
+                        alert('Passwords do not match');
+                        return;
+                    }
+                    
+                    if (!termsChecked) {
+                        alert('Please agree to the Terms of Service and Privacy Policy');
+                        return;
+                    }
+                    
+                    // In a real application, this would send a request to the server
+                    alert('Registration successful! Redirecting to login page...');
+                    // window.location.href = 'login.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

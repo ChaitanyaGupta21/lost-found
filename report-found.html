@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Found Item - Lost & Found</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .report-container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .report-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .report-header h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .report-header p {
+            color: var(--gray-color);
+        }
+
+        .report-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .report-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .report-form input,
+        .report-form select,
+        .report-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .report-form input:focus,
+        .report-form select:focus,
+        .report-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .image-upload {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .image-upload:hover {
+            border-color: var(--primary-color);
+        }
+
+        .image-upload i {
+            font-size: 2rem;
+            color: var(--gray-color);
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark-color);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Lost<span>&</span>Found</h1>
+            </div>
+            <div class="location-dropdown">
+                <div class="location-search">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="location-input">Bhopal</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="location-menu">
+                    <div class="current-location">
+                        <i class="fas fa-location-arrow"></i>
+                        <div class="location-text">
+                            <span>Use current location</span>
+                        </div>
+                    </div>
+                    <div class="popular-locations">
+                        <h3>POPULAR LOCATIONS</h3>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> Kerala</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Tamil Nadu</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Punjab</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Maharashtra</li>
+                        </ul>
+                        <div class="more-locations">
+                            <h3>POPULAR LOCATIONS</h3>
+                            <ul>
+                                <li>Kolkata</li>
+                                <li>Mumbai</li>
+                                <li>Chennai</li>
+                                <li>Pune</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report-lost.html">Report Lost item</a></li>
+                <li><a href="report-found.html">Report found Item</a></li>
+                <li><a href="#success-stories">Success Stories</a></li>
+                <li><a href="#footer" class="contact-link">Contact Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn login-btn">Login</a>
+                <a href="register.html" class="btn register-btn">Register</a>
+            </div>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="recent-items">
+            <div class="section-header">
+                <h2>Recently Lost Items</h2>
+                <p>Check if the item you found matches any of these lost items</p>
+            </div>
+            <div class="items-container">
+                <div class="item-card lost">
+                    <div class="item-image">
+                        <img src="images/Black Leather Wallet.jpg" alt="Lost Wallet">
+                        <span class="item-tag">Lost</span>
+                        <span class="reward">Reward: ₹1,000</span>
+                    </div>
+                    <div class="item-details">
+                        <h3>Black Leather Wallet</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Central Park Mall</p>
+                        <p><i class="fas fa-calendar-alt"></i> Lost on: 15th Aug 2023</p>
+                        <p><i class="fas fa-user"></i> Owner: Rajesh Kumar</p>
+                        <button class="report-match-btn" onclick="fillReportForm('wallet-1')">Report Match</button>
+                    </div>
+                </div>
+                <div class="item-card lost">
+                    <div class="item-image">
+                        <img src="images/iPhone 13 Pro blue.jpg" alt="Lost Phone">
+                        <span class="item-tag">Lost</span>
+                        <span class="reward">Reward: ₹5,000</span>
+                    </div>
+                    <div class="item-details">
+                        <h3>iPhone 13 Pro (Blue)</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Majestic Bus Station, Bangalore</p>
+                        <p><i class="fas fa-calendar-alt"></i> Lost on: February 18, 2024</p>
+                        <p><i class="fas fa-user"></i> Owner: Arjun Nair</p>
+                        <button class="report-match-btn" onclick="fillReportForm('iphone-1')">Report Match</button>
+                    </div>
+                </div>
+                <div class="item-card lost">
+                    <div class="item-image">
+                        <img src="images/MacBook Pro 16-inch (Silver).jpg" alt="Lost Laptop">
+                        <span class="item-tag">Lost</span>
+                        <span class="reward">Reward: ₹10,000</span>
+                    </div>
+                    <div class="item-details">
+                        <h3>MacBook Pro 16-inch (Silver)</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> IIT Library, Chennai</p>
+                        <p><i class="fas fa-calendar-alt"></i> Lost on: February 20, 2024</p>
+                        <p><i class="fas fa-user"></i> Owner: Kavita Iyer</p>
+                        <button class="report-match-btn" onclick="fillReportForm('macbook-1')">Report Match</button>
+                    </div>
+                </div>
+                <div class="item-card lost">
+                    <div class="item-image">
+                        <img src="images/Diamond Engagement Ring.JPG" alt="Lost Ring">
+                        <span class="item-tag">Lost</span>
+                        <span class="reward">Reward: ₹20,000</span>
+                    </div>
+                    <div class="item-details">
+                        <h3>Diamond Engagement Ring</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Taj Hotel, Mumbai</p>
+                        <p><i class="fas fa-calendar-alt"></i> Lost on: February 14, 2024</p>
+                        <p><i class="fas fa-user"></i> Owner: Priya Singh</p>
+                        <button class="report-match-btn" onclick="fillReportForm('ring-1')">Report Match</button>
+                    </div>
+                </div>
+                <div class="item-card lost">
+                    <div class="item-image">
+                        <img src="images/Canon DSLR Camera with Lens.jpg" alt="Lost Camera">
+                        <span class="item-tag">Lost</span>
+                        <span class="reward">Reward: ₹15,000</span>
+                    </div>
+                    <div class="item-details">
+                        <h3>Canon DSLR Camera with Lens</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Lodi Gardens, Delhi</p>
+                        <p><i class="fas fa-calendar-alt"></i> Lost on: February 22, 2024</p>
+                        <p><i class="fas fa-user"></i> Owner: Aditya Verma</p>
+                        <button class="report-match-btn" onclick="fillReportForm('camera-1')">Report Match</button>
+                    </div>
+                </div>
+                <div class="item-card lost">
+                    <div class="item-image">
+                        <img src="images/Blue Passport (International).jpg" alt="Lost Passport">
+                        <span class="item-tag">Lost</span>
+                        <span class="reward">Reward: ₹3,000</span>
+                    </div>
+                    <div class="item-details">
+                        <h3>Blue Passport (International)</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Indira Gandhi International Airport, Delhi</p>
+                        <p><i class="fas fa-calendar-alt"></i> Lost on: May 29, 2024</p>
+                        <p><i class="fas fa-user"></i> Owner: Neha Kapoor</p>
+                        <button class="report-match-btn" onclick="fillReportForm('passport-1')">Report Match</button>
+                    </div>
+                </div>
+                <!-- Add more lost item cards here -->
+            </div>
+        </section>
+
+        <div class="report-container">
+            <div class="report-header">
+                <h2>Report Found Item</h2>
+                <p>Please provide details about the item you found</p>
+            </div>
+            <form class="report-form" id="report-found-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="finder-name">Finder's Name*</label>
+                        <input type="text" id="finder-name" name="finder-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-number">Contact Number*</label>
+                        <input type="tel" id="contact-number" name="contact-number" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-type">Type of Item*</label>
+                    <select id="item-type" name="item-type" required>
+                        <option value="">Select item type</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="documents">Documents</option>
+                        <option value="jewelry">Jewelry</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="found-date">Found Date*</label>
+                        <input type="date" id="found-date" name="found-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="found-time">Found Time*</label>
+                        <input type="time" id="found-time" name="found-time" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="found-location">Found Location*</label>
+                    <input type="text" id="found-location" name="found-location" placeholder="Enter the location where you found the item" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-description">Item Description</label>
+                    <textarea id="item-description" name="item-description" rows="4" placeholder="Provide detailed description of the found item"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-image">Upload Image</label>
+                    <div class="image-upload" onclick="document.getElementById('item-image').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload image of the found item</p>
+                        <input type="file" id="item-image" name="item-image" accept="image/*" style="display: none;">
+                        <div id="image-preview"></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Report Found Item</button>
+            </form>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Lost<span>&</span>Found</h2>
+                <p>Connecting lost items with their owners</p>
+           </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@lostandfound.com</p>
+                <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Lost&Found. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/found-item.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageInput = document.getElementById('item-image');
+            const imagePreview = document.getElementById('image-preview');
+
+            imageInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.innerHTML = `<img src="${e.target.result}" style="max-width: 100%; max-height: 200px; margin-top: 10px;">`;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            document.getElementById('report-found-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add form submission logic here
+                alert('Form submitted successfully!');
+            });
+        });
+    </script>
+</body>
+</html>
