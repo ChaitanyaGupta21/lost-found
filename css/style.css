@@ -81,14 +81,13 @@ header {
     max-width: 1400px;
     margin: 0 auto;
 }
-
 .logo h1 {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--dark-color);
 }
 
-.logo span {
+.logo span { 
     color: var(--primary-color);
 }
 
