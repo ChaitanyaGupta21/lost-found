@@ -353,6 +353,65 @@
 
     <script src="js/script.js"></script>
     <script src="js/found-item.js"></script>
+    
+    <!-- AI Chatbot Assistant -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <!-- Chatbot Toggle Button -->
+        <div class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-robot"></i>
+            <span>AI Assistant</span>
+        </div>
+        
+        <!-- Chatbot Interface -->
+        <div class="chatbot-body" id="chatbotBody">
+            <!-- Chatbot Header -->
+            <div class="chatbot-header" id="chatbotHeader">
+                <div class="chatbot-title">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                </div>
+                <div class="chatbot-controls">
+                    <button class="minimize-btn" id="minimizeBtn">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="close-btn" id="closeBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <p>Hello! I'm your AI Assistant powered by Google Gemini. I can help you with:</p>
+                            <div class="quick-responses">
+                                <button class="quick-response-btn" data-query="How to report a found item?">Report Found Item</button>
+                                <button class="quick-response-btn" data-query="How to search for lost items?">Search Lost Items</button>
+                                <button class="quick-response-btn" data-query="What is the reward system?">Reward System</button>
+                                <button class="quick-response-btn" data-query="How to contact support?">Contact Support</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Ask me anything about lost & found...">
+                <button class="send-btn" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Gemini API Script -->
+    <script src="js/ai-chatbot.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const imageInput = document.getElementById('item-image');
