@@ -12,6 +12,16 @@ Welcome to **Lost & Found**! 🧳 This platform is dedicated to helping people a
 - **Social Proof:** 🏆 Read real success stories and testimonials from users who have reunited with their belongings.
 
 ---
+## AI Chatbot Assistant 🤖
+
+Powered by **Google Gemini API**, our intelligent chatbot provides:
+
+- **24/7 Real-time Support** 🤖 - Get help anytime, anywhere with instant responses
+- **Instant Help and Guidance** 💡 - Quick answers to all your questions about the platform
+- **Question Answering** ❓ - Comprehensive support for lost and found item queries
+- **Smart Recommendations** 🎯 - AI-powered suggestions for better item matching and reporting
+- **Multi-language Support** 🌍 - Assistance in multiple Indian languages and dialects
+- **Contextual Understanding** 🧠 - Remembers your conversation and provides personalized help
 
 ## Key Features 🔑
 
@@ -61,5 +71,6 @@ Welcome to **Lost & Found**! 🧳 This platform is dedicated to helping people a
 - Footer with all essential contact information 📄
 
 ---
+
 
 **Lost & Found** is your trusted companion in reuniting people with their lost belongings. Whether you’ve lost something precious or found an item that needs to be returned, our platform is here to help every step of the way. 🤗 
